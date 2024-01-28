@@ -1,0 +1,10 @@
+<div class="w-80 h-48 pt-4 bg-gray-600 bg-opacity-50 rounded-md text-white">
+    <h2 class="font-semibold mb-2 uppercase pt-2 text-center text-white">Historial de resultados:</h2>
+    <ul>
+      
+      <li class="text-center" *ngFor="let result of historyIMC">
+        {{ result.message }} - {{ result.date }}
+      </li>
+    </ul>
+  </div>
+

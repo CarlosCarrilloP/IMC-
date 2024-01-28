@@ -1,0 +1,104 @@
+<div class="bg-sky-950 w-screen h-screen">
+  <div class="flex items-center justify-center bg-sky-950">
+    <div class="grid grid-cols-4 gap-2">
+      <div class="col-span-4 flex justify-center items-center row-span-1 mt-4">
+        <h2 class=" bg-sky-950 text-xl text-white uppercase font-semibold">Calculadora de IMC Corporal</h2>
+      </div>
+      <div class="mens col-span-2 row-span-2 flex items-center justify-start ">
+        <button id="hombreButton" class="flex flex-col items-center justify-center w-full h-24 bg-gray-600 bg-opacity-50 p-4 rounded-md hover:bg-gray-500 focus:outline-none" [class.fixed-background]="isFixedBackground" (click)="toggleFixedBackground(1)">          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-12 h-12 text-white" fill="white">
+            <path d="M80 176a112 112 0 1 1 224 0A112 112 0 1 1 80 176zM224 349.1c81.9-15 144-86.8 144-173.1C368 78.8 289.2 0 192 0S16 78.8 16 176c0 86.3 62.1 158.1 144 173.1V384H128c-17.7 0-32 14.3-32 32s14.3 32 32 32h32v32c0 17.7 14.3 32 32 32s32-14.3 32-32V448h32c17.7 0 32-14.3 32-32s-14.3-32-32-32H224V349.1z" />
+          </svg>
+          <span class="text-white uppercase">Hombre</span>
+        </button>
+      </div>
+
+      <div class="girls col-span-2 row-span-2 flex items-center justify-end">
+        <button
+          class="flex flex-col items-center justify-center w-full h-24 bg-gray-600 bg-opacity-50 p-4 rounded-md hover:bg-gray-500 focus:outline-none " [class.fixed-background2]="isFixedBackground2" (click)="toggleFixedBackground(2)">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-12 h-12 text-white" fill="white">
+            <path
+              d="M289.8 46.8c3.7-9 12.5-14.8 22.2-14.8H424c13.3 0 24 10.7 24 24V168c0 9.7-5.8 18.5-14.8 22.2s-19.3 1.7-26.2-5.2l-33.4-33.4L321 204.2c19.5 28.4 31 62.7 31 99.8c0 97.2-78.8 176-176 176S0 401.2 0 304s78.8-176 176-176c37 0 71.4 11.4 99.8 31l52.6-52.6L295 73c-6.9-6.9-8.9-17.2-5.2-26.2zM400 80l0 0h0v0zM176 416a112 112 0 1 0 0-224 112 112 0 1 0 0 224z" />
+          </svg>
+
+          <span class="text-white uppercase">Mujer</span>
+        </button>
+      </div>
+
+
+      <div class="height col-span-4 row-span-2">
+        <div class=" w-80 h-48 p-4 bg-gray-600 bg-opacity-50 rounded-md ">
+          <h3 class="text-xl flex justify-center items-center font-semibold mb-2 text-white">
+            Altura
+          </h3>
+          <div class="flex justify-center items-center">
+            <h2 class="m-4 text-6xl text-white">{{ height }}</h2>
+            <p class=" pt-8 text-white">cm</p>
+          </div>
+
+          <input type="range" id="height" name="height"
+            class="w-full appearance-none h-1 bg-white rounded-md outline-none range-lg accent-orange-500" min="140"
+            max="230" step="1" (input)="updateHeight($event)" />
+
+        </div>
+      </div>
+      <div class="weight col-span-2 row-span-2">
+        <div class="flex justify-center items-center w-full h-full">
+          <div class=" w-full h-full text-center bg-gray-600 bg-opacity-50 rounded-md">
+            <h3 class="font-semibold mb-2 uppercase pt-2 text-white">peso</h3>
+
+            <h2 class="text-6xl text-white">{{ weight }}</h2>
+            <p class="text-white">kg</p>
+
+            <div class="flex items-center justify-center">
+              <button
+                class="rounded-full h-8 w-8 mr-4 mb-4 flex items-center justify-center shadow-lg bg-slate-500 hover:bg-slate-400 focus:outline-none text-white"
+                (click)="decrementWeight()">
+                -
+              </button>
+              <button
+                class="rounded-full h-8 w-8 mb-4 flex items-center justify-center shadow-lg bg-slate-500 hover:bg-slate-400 focus:outline-none text-white"
+                (click)="incrementWeight()">
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="age col-span-2 row-span-2 rounded-md">
+        <div class="flex justify-center items-center w-full h-full">
+          <div class=" w-full h-full text-center bg-gray-600 bg-opacity-50 rounded-md">
+            <h3 class="font-semibold mb-2 uppercase pt-2 text-white">edad</h3>
+
+            <h2 class="text-6xl text-white pb-6">{{ age }}</h2>
+
+
+            <div class="flex items-center justify-center">
+              <button
+                class="rounded-full h-8 w-8 mr-4 mb-4 flex items-center justify-center shadow-lg bg-slate-500 hover:bg-slate-400 focus:outline-none text-white"
+                (click)="decrementAge()">
+                -
+              </button>
+              <button
+                class="rounded-full h-8 w-8 mb-4 flex items-center justify-center shadow-lg bg-slate-500 hover:bg-slate-400 focus:outline-none text-white"
+                (click)="incrementAge()">
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="calculate col-span-4 row-span-1 mb-4 bg-orange-200 rounded-md">
+        <button
+          class="w-full h-full p-2 bg-orange-600 hover:bg-orange-500 text-white rounded-md uppercase font-semibold"
+          (click)="calculateIMC()">Calcular</button>
+      </div>
+    </div>
+  </div>
+  <div class=" mx-auto flex justify-center items-center w-96 h-56">
+    <app-result [historyIMC]="historyIMC"></app-result>
+  </div>
+
+
+</div>
