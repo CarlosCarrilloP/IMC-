@@ -17,7 +17,7 @@ Instalamos el paquete de tailwind para los estilos
 
 ```bash
  npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init
+ npx tailwindcss init
 ```
 
 Creamos el componente button para reultilizarlo
